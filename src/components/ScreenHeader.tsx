@@ -1,25 +1,23 @@
 import React from 'react';
-// 1. Importamos o componente Image do react-native
 import { View, Text, StyleSheet, Image } from 'react-native';
 
 interface ScreenHeaderProps {
   title: string;
-  subtitle: string;
+  subtitle?: string; // O '?' torna o subtítulo opcional!
 }
 
 export function ScreenHeader({ title, subtitle }: ScreenHeaderProps) {
   return (
     <View style={styles.container}>
-      
-      {/* 2. Colocamos a imagem no lugar do texto! */}
       <Image 
-        source={require('../assets/logo.png')} // Aponta para a imagem que você salvou
+        source={require('../assets/logo.png')} 
         style={styles.logo}
-        resizeMode="contain" // Isso garante que a imagem não fique esticada ou deformada
+        resizeMode="contain" 
       />
-      
       <Text style={styles.title}>{title}</Text>
-      <Text style={styles.subtitle}>{subtitle}</Text>
+      
+      {/* O React Native só vai desenhar esta linha se o 'subtitle' for enviado */}
+      {subtitle && <Text style={styles.subtitle}>{subtitle}</Text>}
     </View>
   );
 }
@@ -31,7 +29,6 @@ const styles = StyleSheet.create({
     paddingTop: 20, 
     paddingBottom: 30, 
   },
-  // 3. Estilizamos a imagem (você pode ajustar a largura e altura como preferir)
   logo: {
     width: 150, 
     height: 35, 

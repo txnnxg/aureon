@@ -10,6 +10,8 @@ import { MonteTreinoScreen } from '../screens/MonteTreinoScreen';
 import { FrequenciaScreen } from '../screens/FrequenciaScreen';
 import { ObjetivoScreen } from '../screens/ObjetivoScreen';
 import { DiaADiaScreen } from '../screens/DiaADiaScreen';
+import { ObservacaoScreen } from '../screens/ObservacaoScreen';
+import { HomeScreen } from '@/screens/HomeScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +26,8 @@ export function AppNavigator() {
       <Stack.Screen name="Frequencia" component={FrequenciaScreen} />
       <Stack.Screen name="Objetivo" component={ObjetivoScreen} />
       <Stack.Screen name="DiaADia" component={DiaADiaScreen} />
+      <Stack.Screen name="Observacao" component={ObservacaoScreen} />
+      <Stack.Screen name="Home" component={HomeScreen} />
     </Stack.Navigator>
   );
 }

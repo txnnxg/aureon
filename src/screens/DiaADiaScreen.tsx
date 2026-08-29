@@ -20,12 +20,12 @@ export function DiaADiaScreen() {
     console.log("Objetivo:", objetivoEscolhido);
     console.log("Dia a Dia:", diaADia);
     
-    // Deixamos comentado para a próxima tela!
-    // navigation.navigate('ProximaTela', { 
-    //   frequencia: frequenciaEscolhida, 
-    //   objetivo: objetivoEscolhido,
-    //   diaADia: diaADia
-    // });
+   
+     navigation.navigate('Observacao', { 
+       frequencia: frequenciaEscolhida, 
+       objetivo: objetivoEscolhido,
+       diaADia: diaADia
+     });
   };
 
   return (

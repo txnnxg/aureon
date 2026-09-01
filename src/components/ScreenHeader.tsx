@@ -4,9 +4,17 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 interface ScreenHeaderProps {
   title: string;
   subtitle?: string; // O '?' torna o subtítulo opcional!
+  logoVariant?: 'dark' | 'golden';
 }
 
-export function ScreenHeader({ title, subtitle }: ScreenHeaderProps) {
+export function ScreenHeader({ title, subtitle, logoVariant = 'dark' }: ScreenHeaderProps) {
+
+  // A condição que seleciona a imagem correta para o Metro Bundler
+  // Quando a tela estiver escura no fundo colocar essa tag <ScreenHeader logoVariant="golden" title="EXEMPLO"/>.
+  const logoSource = logoVariant === 'golden' 
+    ? require('../assets/logo_dourada.png') 
+    : require('../assets/logo.png');
+
   return (
     <View style={styles.container}>
       <Image 

@@ -27,7 +27,7 @@ export function HomeScreen() {
         
         {/* Cabeçalho */}
         <View style={styles.header}>
-          <Image source={require('../assets/logo.png')} style={styles.logo} resizeMode="contain" />
+          <Image source={require('../assets/logo_dourada.png')} style={styles.logo} resizeMode="contain" />
           <View style={styles.avatarContainer}>
             <Feather name="user" size={24} color="#C59B27" />
           </View>

@@ -39,7 +39,7 @@ export function LoginScreen() {
             <PrimaryButton 
               title="ENTRAR" 
               hideArrow={true} // <-- Daqui a pouco vamos criar essa função no botão!
-              onPress={() => navigation.navigate('Perfil')} 
+              onPress={() => navigation.navigate('Home')} 
             />
           </View>
         </ScrollView>

@@ -2,7 +2,7 @@ import 'react-native-url-polyfill/auto';
 import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = 'https://iqkyadewdgeobsnamngb.supabase.co';
-const supabaseAnonKey = 'sb_publishable_4TY5IT5yuidQe00-0zJxCA_ME5iqwdf';
+const supabaseAnonKey = 'sb_publishable_4TY5IT5yuiDqeO0-0zJxCA_ME5iqwdf';
 
 // Armazenamento em memória simples para evitar qualquer conflito com o Expo Go
 const memoryStorage = {

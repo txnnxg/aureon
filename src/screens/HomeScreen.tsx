@@ -2,9 +2,8 @@ import React from 'react';
 import { StyleSheet, View, Text, ScrollView, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Feather } from '@expo/vector-icons';
+import { Feather, MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 
-// Função inteligente que sempre pega a data de hoje formatada
 const obterDataAtual = () => {
   const hoje = new Date();
   const diasSemana = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'];
@@ -14,15 +13,12 @@ const obterDataAtual = () => {
 
 export function HomeScreen() {
   const navigation = useNavigation<any>();
-  // Ferramenta que mede a barra do Android/iOS
   const insets = useSafeAreaInsets(); 
   const dataDinamica = obterDataAtual();
 
   return (
-    // edges={['top']} garante que o fundo não fique branco embaixo da barra do Android
     <SafeAreaView style={styles.container} edges={['top']}>
       
-      {/* O paddingBottom garante que o último treino não fique escondido atrás do menu */}
       <ScrollView contentContainerStyle={{ paddingBottom: 100 + insets.bottom }} showsVerticalScrollIndicator={false}>
         
         {/* Cabeçalho */}
@@ -39,7 +35,6 @@ export function HomeScreen() {
           <Text style={styles.calendarTextInactive}>29</Text>
           <Text style={styles.calendarTextInactive}>30</Text>
           <View style={styles.calendarActivePill}>
-            {/* Aqui o app injeta a data de hoje! */}
             <Text style={styles.calendarTextActive}>{dataDinamica}</Text>
           </View>
           <View style={styles.calendarCircleInactive}>
@@ -48,17 +43,31 @@ export function HomeScreen() {
           <Text style={styles.calendarTextInactive}>03</Text>
         </View>
 
-        {/* Grid de Ações */}
+        {/* Grid de Ações com Ícones */}
         <View style={styles.gridContainer}>
-          <TouchableOpacity style={styles.gridButton}><Text style={styles.gridText}>Pesquisa{"\n"}Ciêntifica</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.gridButton}><Text style={styles.gridText}>Academias{"\n"}próximas</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.gridButton}><Text style={styles.gridText}>Personal{"\n"}Trainer</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.gridButton}><Text style={styles.gridText}>Todos os{"\n"}treinos</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.gridButton}>
+            <MaterialCommunityIcons name="flask-outline" size={32} color="#C59B27" style={styles.gridIcon} />
+            <Text style={styles.gridText}>Pesquisa{"\n"}Ciêntifica</Text>
+          </TouchableOpacity>
+          
+          <TouchableOpacity style={styles.gridButton}>
+            <Ionicons name="location-sharp" size={32} color="#C59B27" style={styles.gridIcon} />
+            <Text style={styles.gridText}>Academias{"\n"}próximas</Text>
+          </TouchableOpacity>
+          
+          <TouchableOpacity style={styles.gridButton}>
+            <Ionicons name="person" size={32} color="#C59B27" style={styles.gridIcon} />
+            <Text style={styles.gridText}>Personal{"\n"}Trainer</Text>
+          </TouchableOpacity>
+          
+          <TouchableOpacity style={styles.gridButton}>
+            <MaterialCommunityIcons name="dumbbell" size={32} color="#C59B27" style={styles.gridIcon} />
+            <Text style={styles.gridText}>Todos os{"\n"}treinos</Text>
+          </TouchableOpacity>
         </View>
 
         {/* Área de Treinos (Efeito Pasta/Folder) */}
         <View style={styles.workoutSectionWrapper}>
-          
           <View style={styles.tabsRow}>
             <View style={styles.activeTab}>
               <Text style={styles.tabTextActive}>Treinos Personalizados</Text>
@@ -69,9 +78,13 @@ export function HomeScreen() {
           </View>
 
           <View style={styles.workoutContent}>
-            {/* Cartão de Treino 1 */}
+            {/* Cartão de Treino 1 - Imagem Adicionada */}
             <View style={styles.workoutCard}>
-              <View style={styles.workoutImagePlaceholder} />
+              <Image 
+                source={require('../assets/membro.png')} // Lembre-se de ter essa imagem na pasta assets
+                style={styles.workoutImage} 
+                resizeMode="cover"
+              />
               <View style={styles.workoutInfo}>
                 <Text style={styles.workoutTitle}>Treino de Peito</Text>
                 <TouchableOpacity style={styles.agendarButton}>
@@ -80,9 +93,13 @@ export function HomeScreen() {
               </View>
             </View>
 
-            {/* Cartão de Treino 2 */}
+            {/* Cartão de Treino 2 - Imagem Adicionada */}
             <View style={styles.workoutCard}>
-              <View style={styles.workoutImagePlaceholder} />
+              <Image 
+                source={require('../assets/membro.png')} // Lembre-se de ter essa imagem na pasta assets
+                style={styles.workoutImage} 
+                resizeMode="cover"
+              />
               <View style={styles.workoutInfo}>
                 <Text style={styles.workoutTitle}>Treino de Glúteos</Text>
                 <TouchableOpacity style={styles.agendarButton}>
@@ -93,15 +110,29 @@ export function HomeScreen() {
           </View>
 
         </View>
-
       </ScrollView>
 
-      {/* Menu Inferior Fixo - Com cálculo dinâmico da barra do celular */}
+      {/* Menu Inferior Fixo com Ícones Acima do Texto */}
       <View style={[styles.bottomNav, { paddingBottom: insets.bottom > 0 ? insets.bottom + 10 : 25 }]}>
-        <Text style={styles.bottomNavTextActive}>TREINO</Text>
-        <Text style={styles.bottomNavText}>SUPLEMENTO</Text>
-        <Text style={styles.bottomNavText}>DIETA</Text>
-        <Feather name="menu" size={28} color="#FFF" />
+        <TouchableOpacity style={styles.navItem}>
+          <MaterialCommunityIcons name="dumbbell" size={28} color="#C59B27" />
+          <Text style={styles.bottomNavTextActive}>TREINO</Text>
+        </TouchableOpacity>
+        
+        <TouchableOpacity style={styles.navItem}>
+          <MaterialCommunityIcons name="bottle-tonic" size={28} color="#C59B27" />
+          <Text style={styles.bottomNavTextActive}>SUPLEMENTO</Text>
+        </TouchableOpacity>
+        
+        <TouchableOpacity style={styles.navItem}>
+          <MaterialCommunityIcons name="silverware-fork-knife" size={28} color="#C59B27" />
+          <Text style={styles.bottomNavTextActive}>DIETA</Text>
+        </TouchableOpacity>
+        
+        <TouchableOpacity style={styles.navItem}>
+          <Ionicons name="menu" size={32} color="#C59B27" />
+          <Text style={styles.bottomNavTextActive}>MAIS</Text>
+        </TouchableOpacity>
       </View>
 
     </SafeAreaView>
@@ -121,10 +152,10 @@ const styles = StyleSheet.create({
   calendarCircleInactive: { borderWidth: 1, borderColor: '#A0A0A0', width: 30, height: 30, borderRadius: 15, alignItems: 'center', justifyContent: 'center' },
   
   gridContainer: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', paddingHorizontal: 20, marginBottom: 30 },
-  gridButton: { width: '48%', backgroundColor: 'rgba(30, 30, 30, 0.8)', borderWidth: 1, borderColor: '#C59B27', borderRadius: 15, paddingVertical: 25, alignItems: 'center', marginBottom: 15 },
+  gridButton: { width: '48%', backgroundColor: 'rgba(30, 30, 30, 0.8)', borderWidth: 1, borderColor: '#C59B27', borderRadius: 15, paddingVertical: 20, alignItems: 'center', marginBottom: 15 },
+  gridIcon: { marginBottom: 10 },
   gridText: { color: '#FFF', textAlign: 'center', fontWeight: 'bold', fontSize: 14 },
   
-  // O Segredo do formato de Pasta/Folder
   workoutSectionWrapper: { paddingHorizontal: 20 },
   tabsRow: { flexDirection: 'row' },
   activeTab: { backgroundColor: '#2E2E2E', paddingVertical: 12, paddingHorizontal: 18, borderTopLeftRadius: 20, borderTopRightRadius: 20 },
@@ -134,13 +165,13 @@ const styles = StyleSheet.create({
   workoutContent: { backgroundColor: '#2E2E2E', borderTopRightRadius: 20, borderBottomLeftRadius: 20, borderBottomRightRadius: 20, padding: 20, minHeight: 300 },
   
   workoutCard: { flexDirection: 'row', alignItems: 'center', marginBottom: 20 },
-  workoutImagePlaceholder: { width: 80, height: 60, backgroundColor: '#1A1A1A', borderRadius: 10, marginRight: 15 },
+  workoutImage: { width: 80, height: 60, borderRadius: 10, marginRight: 15 },
   workoutInfo: { flex: 1 },
   workoutTitle: { color: '#FFF', fontWeight: 'bold', fontSize: 16, marginBottom: 5 },
   agendarButton: { backgroundColor: '#C59B27', paddingVertical: 5, paddingHorizontal: 15, borderRadius: 8, alignSelf: 'flex-start' },
   agendarText: { color: '#000', fontWeight: 'bold', fontSize: 12 },
   
-  bottomNav: { position: 'absolute', bottom: 0, width: '100%', flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', backgroundColor: '#000', paddingTop: 20, borderTopWidth: 1, borderTopColor: '#333' },
-  bottomNavText: { color: '#A0A0A0', fontWeight: 'bold', fontSize: 12 },
-  bottomNavTextActive: { color: '#FFF', fontWeight: 'bold', fontSize: 12 },
+  bottomNav: { position: 'absolute', bottom: 0, width: '100%', flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', backgroundColor: '#000', paddingTop: 15, borderTopWidth: 1, borderTopColor: '#333' },
+  navItem: { alignItems: 'center', gap: 4 },
+  bottomNavTextActive: { color: '#FFF', fontWeight: 'bold', fontSize: 10, marginTop: 2 },
 });

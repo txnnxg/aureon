@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, TextInput, StyleSheet, TouchableOpacity, TextInputProps } from 'react-native';
 import { Feather } from '@expo/vector-icons';
-import { colors } from '../theme/colors';
+import { colors } from '@/theme/colors';
 
 // Aqui definimos o que o nosso Input vai receber.
 // O "extends TextInputProps" é um truque do TypeScript para dizer que nosso CustomInput

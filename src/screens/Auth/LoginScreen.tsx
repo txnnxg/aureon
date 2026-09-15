@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 // 1. Adicione o useWindowDimensions na importação
 import { StyleSheet, View, ScrollView, KeyboardAvoidingView, Platform, useWindowDimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { BackgroundWrapper } from '../components/BackgroundWrapper';
-import { ScreenHeader } from '../components/ScreenHeader';
-import { CustomInput } from '../components/CustomInput';
-import { PrimaryButton } from '../components/PrimaryButton';
+import { BackgroundWrapper } from '@/components/BackgroundWrapper';
+import { ScreenHeader } from '@/components/ScreenHeader';
+import { CustomInput } from '@/components/CustomInput';
+import { PrimaryButton } from '@/components/PrimaryButton';
 
 export function LoginScreen() {
   const navigation = useNavigation<any>();

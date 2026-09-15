@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, ScrollView, KeyboardAvoidingView, Platform, useWindowDimensions, Alert } from 'react-native';
-import { BackgroundWrapper } from '../components/BackgroundWrapper';
-import { ScreenHeader } from '../components/ScreenHeader';
-import { CustomInput } from '../components/CustomInput';
-import { ProgressBar } from '../components/ProgressBar';
-import { PrimaryButton } from '../components/PrimaryButton';
-import { Checkbox } from '../components/Checkbox';
-import { maskWhatsapp } from '../utils/masks';
+import { BackgroundWrapper } from '@/components/BackgroundWrapper';
+import { ScreenHeader } from '@/components/ScreenHeader';
+import { CustomInput } from '@/components/CustomInput';
+import { ProgressBar } from '@/components/ProgressBar';
+import { PrimaryButton } from '@/components/PrimaryButton';
+import { Checkbox } from '@/components/Checkbox';
+import { maskWhatsapp } from '@/utils/masks';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { supabase } from '../lib/supabase';
+import { supabase } from '@/lib/supabase';
 
 export function CadastroScreen() {
   // 1. Estados dos novos campos do formulário

@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet, View } from 'react-native';
 import { Feather } from '@expo/vector-icons';
-import { colors } from '../theme/colors';
+import { colors } from '@/theme/colors';
 
 // O nosso manual de instruções pede duas coisas:
 // 1. isChecked: Um aviso dizendo se ele está marcado (true) ou não (false)

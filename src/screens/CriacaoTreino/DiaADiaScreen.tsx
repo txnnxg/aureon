@@ -1,31 +1,35 @@
 import React from 'react';
 import { StyleSheet, View, useWindowDimensions } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { BackgroundWrapper } from '../components/BackgroundWrapper';
-import { ScreenHeader } from '../components/ScreenHeader';
-import { OptionButton } from '../components/OptionButton';
+import { BackgroundWrapper } from '@/components/BackgroundWrapper';
+import { ScreenHeader } from '@/components/ScreenHeader';
+import { OptionButton } from '@/components/OptionButton';
 
 export function DiaADiaScreen() {
   const navigation = useNavigation<any>();
   const route = useRoute<any>();
   const { height } = useWindowDimensions();
 
-  // Recebe as respostas das telas anteriores
+  // 1. Recebe as TRÊS respostas das telas anteriores
+  const metodoEscolhido = route.params?.metodoCriacao || 'Não informado';
   const frequenciaEscolhida = route.params?.frequencia || 'Não informada';
   const objetivoEscolhido = route.params?.objetivo || 'Não informado';
 
   const handleSelectOption = (diaADia: string) => {
+    // Esse console.log vai te mostrar no terminal se a "mochila" chegou cheia!
     console.log("--- RESUMO ATÉ AQUI ---");
+    console.log("Método:", metodoEscolhido);
     console.log("Frequência:", frequenciaEscolhida);
     console.log("Objetivo:", objetivoEscolhido);
     console.log("Dia a Dia:", diaADia);
     
-   
-     navigation.navigate('Observacao', { 
-       frequencia: frequenciaEscolhida, 
-       objetivo: objetivoEscolhido,
-       diaADia: diaADia
-     });
+    // 2. Manda as QUATRO respostas para a próxima tela
+    navigation.navigate('Observacao', { 
+      metodoCriacao: metodoEscolhido,
+      frequencia: frequenciaEscolhida, 
+      objetivo: objetivoEscolhido,
+      diaADia: diaADia
+    });
   };
 
   return (

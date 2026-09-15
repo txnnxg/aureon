@@ -1,12 +1,12 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Image, useWindowDimensions } from 'react-native';
-import { ScreenHeader } from '../components/ScreenHeader';
+import { ScreenHeader } from '@/components/ScreenHeader';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 
-import { BackgroundWrapper } from '../components/BackgroundWrapper';
-import { ProgressBar } from '../components/ProgressBar';
+import { BackgroundWrapper } from '@/components/BackgroundWrapper';
+import { ProgressBar } from '@/components/ProgressBar';
 
 export function MonteTreinoScreen() {
   const navigation = useNavigation<any>();
@@ -37,7 +37,7 @@ export function MonteTreinoScreen() {
           <TouchableOpacity 
             activeOpacity={0.8} 
             style={styles.glowWrapper}
-            onPress={() => navigation.navigate('Frequencia')}
+            onPress={() => navigation.navigate('Frequencia', { metodoCriacao: 'IA'})}
             >
             
             <LinearGradient
@@ -57,7 +57,10 @@ export function MonteTreinoScreen() {
           </TouchableOpacity>
 
           {/* BOTÃO: TREINOS PRONTOS */}
-          <TouchableOpacity style={styles.optionCard}>
+          <TouchableOpacity 
+            style={styles.optionCard}
+            // onPress={() => navigation.navigate('TreinosProntos', { metodoCriacao: 'Prontos' })}
+            >
             <MaterialCommunityIcons name="format-list-bulleted" size={40} color="#C59B27" style={styles.icon} />
             <View style={styles.textContainer}>
               <Text style={styles.cardTitle}>TREINOS PRONTOS</Text>
@@ -66,7 +69,10 @@ export function MonteTreinoScreen() {
           </TouchableOpacity>
 
           {/* BOTÃO: CRIE SEU TREINO */}
-          <TouchableOpacity style={styles.optionCard}>
+          <TouchableOpacity 
+            style={styles.optionCard}
+            // onPress={() => navigation.navigate('CrieSeuTreino', { metodoCriacao: 'Manual' })}
+             >
             <MaterialCommunityIcons name="plus-circle-outline" size={40} color="#C59B27" style={styles.icon} />
             <View style={styles.textContainer}>
               <Text style={styles.cardTitle}>CRIE SEU TREINO</Text>
@@ -75,7 +81,10 @@ export function MonteTreinoScreen() {
           </TouchableOpacity>
 
           {/* BOTÃO: COMEÇAR SEM TREINO */}
-          <TouchableOpacity style={styles.optionCard}>
+          <TouchableOpacity 
+            style={styles.optionCard}
+            // onPress={() => navigation.navigate('SemTreino', { metodoCriacao: 'Sem' })}
+            >
             <MaterialCommunityIcons name="clipboard-edit-outline" size={40} color="#C59B27" style={styles.icon} />
             <View style={styles.textContainer}>
               <Text style={styles.cardTitle}>COMEÇAR SEM TREINO</Text>

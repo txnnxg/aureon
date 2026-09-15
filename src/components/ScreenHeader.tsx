@@ -12,13 +12,13 @@ export function ScreenHeader({ title, subtitle, logoVariant = 'dark' }: ScreenHe
   // A condição que seleciona a imagem correta para o Metro Bundler
   // Quando a tela estiver escura no fundo colocar essa tag <ScreenHeader logoVariant="golden" title="EXEMPLO"/>.
   const logoSource = logoVariant === 'golden' 
-    ? require('../assets/logo_dourada.png') 
-    : require('../assets/logo.png');
+    ? require('@/assets/logo_dourada.png') 
+    : require('@/assets/logo.png');
 
   return (
     <View style={styles.container}>
       <Image 
-        source={require('../assets/logo.png')} 
+        source={require('@/assets/logo.png')} 
         style={styles.logo}
         resizeMode="contain" 
       />

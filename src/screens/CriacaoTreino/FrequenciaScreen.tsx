@@ -1,16 +1,24 @@
 import React from 'react';
 import { StyleSheet, View, useWindowDimensions } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { BackgroundWrapper } from '../components/BackgroundWrapper';
-import { ScreenHeader } from '../components/ScreenHeader';
-import { OptionButton } from '../components/OptionButton';
+import { useNavigation, useRoute } from '@react-navigation/native'; // Importamos o useRoute
+import { BackgroundWrapper } from '@/components/BackgroundWrapper';
+import { ScreenHeader } from '@/components/ScreenHeader';
+import { OptionButton } from '@/components/OptionButton';
 
 export function FrequenciaScreen() {
   const navigation = useNavigation<any>();
+  const route = useRoute<any>(); // Habilitamos a leitura da mochila
   const { height } = useWindowDimensions();
 
+  // 1. Recebe o que o usuário clicou na tela MonteTreino (ex: 'IA')
+  const metodoEscolhido = route.params?.metodoCriacao || 'Nao informado';
+
   const handleSelectOption = (opcao: string) => {
-    navigation.navigate('Objetivo', { frequencia: opcao });
+    // 2. Navega para Objetivo levando a mochila com as DUAS informações
+    navigation.navigate('Objetivo', { 
+      metodoCriacao: metodoEscolhido,
+      frequencia: opcao 
+    });
   };
 
   return (
@@ -53,6 +61,6 @@ const styles = StyleSheet.create({
   },
   optionsContainer: {
     width: '100%',
-    marginTop: 40, // Espaço entre o subtítulo e a primeira opção
+    marginTop: 40, 
   }
 });

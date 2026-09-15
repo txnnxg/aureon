@@ -1,12 +1,12 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Image, useWindowDimensions } from 'react-native';
-import { ScreenHeader } from '../components/ScreenHeader';
+import { ScreenHeader } from '@/components/ScreenHeader';
 import { useNavigation, useRoute } from '@react-navigation/native';
 // Adicionamos a importação dos ícones do MaterialCommunityIcons
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 
-import { BackgroundWrapper } from '../components/BackgroundWrapper';
-import { ProgressBar } from '../components/ProgressBar';
+import { BackgroundWrapper } from '@/components/BackgroundWrapper';
+import { ProgressBar } from '@/components/ProgressBar';
 
 export function PerfilScreen() {
   const navigation = useNavigation<any>();
@@ -39,7 +39,7 @@ export function PerfilScreen() {
          })}
           >
             <Image 
-              source={require('../assets/membro.png')} // Lembre de checar se a sua é .png ou .jpg
+              source={require('@/assets/membro.png')} // Lembre de checar se a sua é .png ou .jpg
               style={styles.cardImage}
               resizeMode="contain"
             />
@@ -64,7 +64,7 @@ export function PerfilScreen() {
           {/* CARTÃO: PROFISSIONAL */}
           <TouchableOpacity style={styles.card}>
             <Image 
-              source={require('../assets/profissional.png')} 
+              source={require('@/assets/profissional.png')} 
               style={styles.cardImage}
               resizeMode="contain"
             />

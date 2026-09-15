@@ -2,7 +2,7 @@ import React from 'react';
 import { TouchableOpacity, Text, StyleSheet, TouchableOpacityProps } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { MaterialIcons } from '@expo/vector-icons';
-import { colors } from '../theme/colors';
+import { colors } from '@/theme/colors';
 
 // 1. Atualizamos o manual de instruções! O "?" significa que é opcional.
 interface PrimaryButtonProps extends TouchableOpacityProps {

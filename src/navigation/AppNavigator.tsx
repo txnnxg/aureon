@@ -13,6 +13,9 @@ import { ObjetivoScreen } from '@/screens/CriacaoTreino/ObjetivoScreen';
 import { DiaADiaScreen } from '@/screens/CriacaoTreino/DiaADiaScreen';
 import { ObservacaoScreen } from '@/screens/CriacaoTreino/ObservacaoScreen';
 
+// Tela Dinâmica dos Profissionais
+import { QuestionarioProfissionalScreen } from '@/screens/OnboardingProfissionais/QuestionarioProfissionalScreen';
+
 // Telas Principais
 import { HomeScreen } from '@/screens/Main/HomeScreen';
 import { PerfilScreen } from '@/screens/Main/PerfilScreen';
@@ -27,6 +30,7 @@ export function AppNavigator() {
       <Stack.Screen name="Cadastro" component={CadastroScreen} />
       <Stack.Screen name="Perfil" component={PerfilScreen} />
       <Stack.Screen name="MonteTreino" component={MonteTreinoScreen} />
+      <Stack.Screen name="QuestionarioProfissional" component={QuestionarioProfissionalScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Frequencia" component={FrequenciaScreen} />
       <Stack.Screen name="Objetivo" component={ObjetivoScreen} />

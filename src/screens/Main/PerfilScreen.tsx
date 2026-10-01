@@ -57,29 +57,11 @@ export function PerfilScreen() {
               })
             }
           >
-            <View
-              style={[
-                styles.imageContainer,
-                styles.imageContainerMembro,
-              ]}
-            >
+            <View style={[styles.imageContainer, styles.imageContainerMembro]}>
               <Image
                 source={require('@/assets/membro.png')}
-                style={styles.cardImage}
-                resizeMode="cover"
-              />
-
-              <LinearGradient
-                colors={[
-                  'rgba(20, 12, 0, 0)',
-                  'rgba(20, 12, 0, 0.6)',
-                ]}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 0 }}
-                style={[
-                  styles.fadeOverlay,
-                  styles.fadeOverlayMembro,
-                ]}
+                style={[styles.cardImage, styles.cardImageMembro]}
+                resizeMode="contain"
               />
             </View>
 
@@ -115,26 +97,13 @@ export function PerfilScreen() {
               )
             }
           >
-            <LinearGradient
-              colors={['#F5B700', '#8A631B']}
-              style={styles.imageContainer}
-            >
+            <View style={styles.imageContainer}>
               <Image
                 source={require('@/assets/profissional.png')}
-                style={styles.cardImage}
-                resizeMode="cover"
+                style={[styles.cardImage, styles.cardImagePersonal]}
+                resizeMode="contain"
               />
-
-              <LinearGradient
-                colors={[
-                  'rgba(20, 12, 0, 0)',
-                  'rgba(20, 12, 0, 0.6)',
-                ]}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 0 }}
-                style={styles.fadeOverlay}
-              />
-            </LinearGradient>
+            </View>
 
             <View style={styles.cardContent}>
               <View style={styles.iconContainer}>
@@ -168,26 +137,13 @@ export function PerfilScreen() {
               )
             }
           >
-            <LinearGradient
-              colors={['#F5B700', '#8A631B']}
-              style={styles.imageContainer}
-            >
+            <View style={styles.imageContainer}>
               <Image
                 source={require('@/assets/nutricionista.png')}
-                style={styles.cardImage}
-                resizeMode="cover"
+                style={[styles.cardImage, styles.cardImageNutricionista]}
+                resizeMode="contain"
               />
-
-              <LinearGradient
-                colors={[
-                  'rgba(20, 12, 0, 0)',
-                  'rgba(20, 12, 0, 0.6)',
-                ]}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 0 }}
-                style={styles.fadeOverlay}
-              />
-            </LinearGradient>
+            </View>
 
             <View style={styles.cardContent}>
               <View style={styles.iconContainer}>
@@ -237,14 +193,16 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     borderWidth: 1,
     borderColor: '#C59B27',
-    height: 140,
+    height: 160,
     overflow: 'hidden',
   },
 
   imageContainer: {
-    width: '40%',
+    width: '46%',
     height: '100%',
     position: 'relative',
+    justifyContent: 'flex-end',
+    backgroundColor: 'transparent',
   },
 
   /*
@@ -252,7 +210,30 @@ const styles = StyleSheet.create({
    * Personal e Nutricionista continuam usando 40%.
    */
   imageContainerMembro: {
-    width: '32%',
+    width: '50%',
+  },
+
+  cardImageMembro: {
+    transform: [
+      { scale: 1.25 },
+      { translateY: 20 },
+    ],
+  },
+
+  cardImagePersonal: {
+    transform: [
+      { scale: 1.25 },
+      { translateY: 20 },
+      { translateX: 5 },
+    ],
+  },
+
+  cardImageNutricionista: {
+    transform: [
+      { scale: 1.15 },
+      { translateY: 18 },
+      { translateX: 8 },
+    ],
   },
 
   cardImage: {
@@ -272,7 +253,7 @@ const styles = StyleSheet.create({
    * Ajuste exclusivo do fade do MEMBRO.
    */
   fadeOverlayMembro: {
-    width: 35,
+    width: 40,
   },
 
   cardContent: {
